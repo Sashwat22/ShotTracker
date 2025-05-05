@@ -1,0 +1,41 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Log files and databases
+*.log
+*.sqlite3
+
+# Ultralytics training outputs
+runs/
+
+# Model weights & exported formats
+# models/*.pt
+models/*.onnx
+
+# Dataset (raw & labels)
+# data/
+
+# Temporary or backup files
+*.swp
+*~
+ 
+# Example videos
+# *.mov
