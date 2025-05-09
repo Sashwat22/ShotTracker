@@ -1,6 +1,0 @@
-ultralytics
-opencv-python
-deep-sort-realtime
-numpy
-scipy
-PyQt6
