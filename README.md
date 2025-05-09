@@ -1,81 +1,98 @@
-# Basketball Object Detection Project
+# Basketball Shot Analysis
 
-This project implements a basketball object detection system using YOLOv8 and Deep SORT for real-time tracking. The system is designed to detect and track basketballs in video footage.
+A Python application that analyzes basketball shots using computer vision and provides real-time statistics and feedback.
+
+## Features
+
+- Real-time detection of basketball and hoop using YOLO
+- Shot tracking and trajectory analysis
+- Statistics tracking (shots made/missed, launch angle, ball speed)
+- Video playback controls with progress tracking
+- Ball trajectory visualization
+- Modern dark-themed UI with PyQt5
 
 ## Project Structure
 
+The application has a modular structure:
+
 ```
-.
-├── data/               # Dataset and configuration files
-├── models/            # Trained model weights
-├── src/              # Source code
-├── train.py          # Training script
-├── xml_to_YOLO.py    # Data conversion utility
-└── requirements.txt   # Project dependencies
-```
-
-## Prerequisites
-
-- Python 3.8 or higher
-- CUDA-capable GPU (recommended for training)
-
-## Installation
-
-1. Clone the repository:
-```bash
-git clone [your-repository-url]
-cd 445Proj
+src/
+├── main.py                  # Main application entry point
+├── models/                  # ML and tracking models
+│   ├── __init__.py
+│   ├── ball_tracker.py      # Ball trail tracking
+│   └── yolo_detector.py     # YOLO object detection
+├── processors/              # Data processors
+│   ├── __init__.py
+│   ├── frame_processor.py   # Video frame processing
+│   └── shot_detector.py     # Shot detection and analysis
+└── ui/                      # User interface components
+    ├── __init__.py
+    ├── config_dialog.py     # Configuration dialog
+    ├── stats_display.py     # Statistics display
+    ├── video_browser.py     # Video file browser
+    └── video_player.py      # Video playback
 ```
 
-2. Create a virtual environment (recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-```
+## Requirements
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+- Python 3.8+
+- PyQt5
+- OpenCV (cv2)
+- NumPy
+- Ultralytics YOLO
+- deep-sort-realtime
+- scipy
+
+## Setup
+
+1. Clone the repository
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Create a `data/videos` directory to store your basketball videos
+4. Ensure you have a `best.pt` YOLO model file in the root directory (trained on basketball and hoop detection)
 
 ## Usage
 
-### Training the Model
+1. Run the application:
+   ```
+   python -m src.main
+   ```
+2. Click "Select Video Folder" to browse for videos containing basketball shots
+3. Double-click a video to start analysis
+4. Use the playback controls to pause/play and navigate the video
+5. Toggle the ball trail for trajectory visualization
+6. View real-time statistics including:
+   - Shot count (made/attempted)
+   - Shot success rate
+   - Launch angle
+   - Ball speed
+   - Distance to hoop
 
-To train the model on your dataset:
+## Features
 
-```bash
-python train.py
-```
+### Shot Detection
+The application uses a robust algorithm to detect basketball shots by tracking:
+- The ball's position relative to the hoop
+- Upward and downward motion of the ball
+- Trajectory patterns
+- Ball position relative to the hoop rim
 
-The training script uses the following default parameters:
-- Model: YOLOv8n
-- Epochs: 50
-- Image size: 640x640
-- Batch size: 16
-- Output directory: 'bball_run'
+### Real-Time Analysis
+While analyzing videos, the app provides immediate feedback on:
+- Shot success or failure
+- Shot arc angle
+- Ball speed
+- Current distance from ball to hoop
 
-### Data Conversion
-
-If you have XML annotations that need to be converted to YOLO format:
-
-```bash
-python xml_to_YOLO.py
-```
-
-## Dependencies
-
-- ultralytics: YOLOv8 implementation
-- opencv-python: Computer vision operations
-- deep-sort-realtime: Object tracking
-- numpy: Numerical operations
-- scipy: Scientific computing
-- PyQt6: GUI framework
+### Modern UI
+- Clean dark-themed interface
+- Video browser for easy selection
+- Real-time statistics panel
+- Configuration options for model selection and video directory
 
 ## License
 
-[Add your license information here]
-
-## Contributing
-
-[Add contribution guidelines if applicable]
+This project is provided as open-source software.

@@ -1,6 +1,6 @@
-ultralytics
 opencv-python
-deep-sort-realtime
+ultralytics
+PyQt5
 numpy
+deep-sort-realtime
 scipy
-PyQt6
