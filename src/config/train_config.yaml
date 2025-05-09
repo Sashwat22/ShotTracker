@@ -1,0 +1,29 @@
+# Dataset paths
+path: data  # dataset root dir
+train: train/images  # train images (relative to 'path')
+val: val/images  # val images (relative to 'path')
+
+# Classes
+names:
+  0: basketball
+
+# Training parameters
+epochs: 100  # number of training epochs
+batch: 16  # batch size
+imgsz: 640  # image size
+device: mps  # use MPS acceleration
+workers: 8  # number of worker threads
+patience: 50  # early stopping patience
+save: True  # save checkpoints
+save_period: 10  # save checkpoint every x epochs
+cache: False  # cache images in memory
+exist_ok: False  # existing project/name ok, do not increment
+pretrained: True  # use pretrained model
+optimizer: auto  # optimizer (SGD, Adam, etc.)
+verbose: True  # print verbose output
+seed: 0  # random seed for reproducibility
+deterministic: True  # deterministic training
+single_cls: True  # train as single-class dataset
+rect: False  # rectangular training
+cos_lr: False  # cosine learning rate scheduler
+close_mosaic: 10  # disable mosaic augmentation for final 10 epochs 
