@@ -1,5 +1,6 @@
 import sys
 import os
+sys.path.insert(0, os.path.dirname(__file__))
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, 
                              QPushButton, QFileDialog, QHBoxLayout, QGroupBox, 
                              QSizePolicy, QStyle, QScrollArea, QGridLayout, QSlider, QFrame, QDialog, QListWidget, QListWidgetItem)

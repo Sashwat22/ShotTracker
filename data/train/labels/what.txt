@@ -1,2 +1,0 @@
-YOLO .txt label files
-Split roughly 80 % of your annotated frames into train/ and 20 % into val/.
